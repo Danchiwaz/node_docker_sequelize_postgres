@@ -22,7 +22,7 @@ const PORT = process.env.EXTERNAL_PORT || 3000
 
 try {
     app.listen(PORT, () =>{
-        console.log(`server listening on ${PORT}`);
+        console.log(`server listening this changed  ${PORT}`);
     })
 } catch (error) {
     console.error(error);
