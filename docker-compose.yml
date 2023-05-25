@@ -9,7 +9,7 @@ services:
       - 5000:5000
     environment:
       - EXTERNAL_PORT=5000
-      - DB_NAME=node_db
+      - DB_NAME=node_docker_db
       - DB_USER=Danchiwaz 
       - DB_PASSWORD=1234
       - PGHOST=node_db
@@ -26,7 +26,7 @@ services:
     environment:
       - POSTGRES_USER=Danchiwaz
       - POSTGRES_PASSWORD=1234
-      - POSTGRES_DB=node_db 
+      - POSTGRES_DB=node_docker_db 
     volumes:
       - pg_volume_db:/var/lib/postgresql/data 
 
