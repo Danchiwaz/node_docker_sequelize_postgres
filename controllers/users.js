@@ -44,12 +44,39 @@ exports.createUser = async (req, res, next) => {
   }
 };
 
+// update single user
+exports.updateSingleUser = async (req, res, next) => {
+  try {
+    const USER_MODEL = {
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+    };
+
+    try {
+      const user = await User.update(USER_MODEL, {
+        where: {
+          id: req.params.id,
+        },
+      });
+      return res.status(200).json({
+        message: "User updated successfully",
+        data: user,
+      });
+    } catch (error) {
+      return res.status(500).json({ error: error.message });
+    }
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+};
+
 // delete user
 exports.deleteUser = async (req, res, next) => {
   try {
     const id = req.params.id;
-    const user = await User.destory({
-      wherre: {
+    const user = await User.destroy({
+      where: {
         id: id,
       },
     });
